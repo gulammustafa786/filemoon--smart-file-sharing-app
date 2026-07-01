@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - FileMoon</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="auth-wrapper">
+
+    <a href="index.html" class="auth-logo">
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18H6a4 4 0 1 1 .9-7.9A5 5 0 0 1 17 9a3.5 3.5 0 0 1 0 7Z"/></svg>
+      </span>
+      FileMoon
+    </a>
+
+    <div class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="auth-sub">Login to access your dashboard.</p>
+
+      <div class="form-message" id="formMessage"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter your email" />
+          <span class="field-error" id="emailError">Please enter your email.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" />
+          <span class="field-error" id="passwordError">Please enter your password.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <p class="auth-switch">
+        Don't have an account? <a href="signup.html">Signup</a>
+      </p>
+    </div>
+
+    <a href="index.html" class="back-home">&larr; Back to Home</a>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

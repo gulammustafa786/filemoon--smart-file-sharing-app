@@ -1,0 +1,207 @@
+/* ============================================
+   FileMoon - Signup Page Styles (signup.css)
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fm-white: #ffffff;
+  --fm-bg-soft: #f6f8fb;
+  --fm-border: #e3e8ef;
+  --fm-text: #1b2430;
+  --fm-text-soft: #5c6779;
+  --fm-blue: #2f6fed;
+  --fm-blue-dark: #1f57c9;
+  --fm-blue-soft: #eaf1ff;
+  --fm-red: #e0453f;
+  --fm-radius-card: 14px;
+  --fm-radius-btn: 8px;
+  --fm-shadow: 0 2px 10px rgba(20, 30, 50, 0.06);
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--fm-text);
+  background-color: var(--fm-bg-soft);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+
+.auth-logo .logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background-color: var(--fm-blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-logo .logo-mark svg {
+  stroke: var(--fm-blue);
+}
+
+.auth-card {
+  background-color: var(--fm-white);
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-card);
+  box-shadow: var(--fm-shadow);
+  padding: 34px 32px;
+}
+
+.auth-card h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.auth-card .auth-sub {
+  text-align: center;
+  color: var(--fm-text-soft);
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-btn);
+  font-size: 14px;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--fm-text);
+  background-color: var(--fm-white);
+}
+
+.form-group input:focus {
+  outline: 2px solid var(--fm-blue);
+  outline-offset: 1px;
+  border-color: var(--fm-blue);
+}
+
+.form-group input.input-error {
+  border-color: var(--fm-red);
+}
+
+.field-error {
+  color: var(--fm-red);
+  font-size: 12px;
+  margin-top: 6px;
+  display: none;
+}
+
+.field-error.show {
+  display: block;
+}
+
+.form-message {
+  display: none;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: var(--fm-radius-btn);
+  margin-bottom: 18px;
+}
+
+.form-message.show {
+  display: block;
+}
+
+.form-message.error {
+  background-color: #fdecec;
+  color: var(--fm-red);
+}
+
+.form-message.success {
+  background-color: #e8f6ec;
+  color: #1c8a44;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: var(--fm-radius-btn);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--fm-blue);
+  color: var(--fm-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--fm-blue-dark);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 14px;
+  color: var(--fm-text-soft);
+  margin-top: 22px;
+}
+
+.auth-switch a {
+  color: var(--fm-blue);
+  font-weight: 600;
+}
+
+.back-home {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--fm-text-soft);
+  margin-top: 18px;
+}
+
+.back-home:hover {
+  color: var(--fm-blue);
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - FileMoon</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="topbar-logo">
+        <span class="logo-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18H6a4 4 0 1 1 .9-7.9A5 5 0 0 1 17 9a3.5 3.5 0 0 1 0 7Z"/></svg>
+        </span>
+        FileMoon
+      </a>
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Search files..." />
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <span class="topbar-user-name" id="topbarUserName">User</span>
+      <div class="topbar-avatar" id="topbarAvatar">U</div>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="dashboard-layout">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+      <ul class="sidebar-nav">
+        <li>
+          <button class="sidebar-link active" data-section="dashboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+            Dashboard
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-link" data-section="upload">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
+            Upload File
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-link" data-section="history">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></svg>
+            History
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-link" data-section="folders">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+            Folders
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-link" data-section="shared">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+            Shared Files
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-link" data-section="profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+            Profile
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+
+      <ul class="sidebar-nav">
+        <li>
+          <button class="sidebar-link" id="logoutBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+            Logout
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="main-content">
+
+      <!-- ---------- DASHBOARD SECTION ---------- -->
+      <section class="dash-section active" id="section-dashboard">
+        <div class="welcome-card">
+          <p>Welcome back,</p>
+          <h2 id="welcomeName">User</h2>
+        </div>
+
+        <div class="dash-stats">
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6l2 3h8v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+            </div>
+            <div>
+              <div class="dash-stat-number" id="statFiles">0</div>
+              <div class="dash-stat-label">Files Uploaded</div>
+            </div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            </div>
+            <div>
+              <div class="dash-stat-number" id="statDownloads">0</div>
+              <div class="dash-stat-label">Downloads</div>
+            </div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+            </div>
+            <div>
+              <div class="dash-stat-number" id="statFolders">0</div>
+              <div class="dash-stat-label">Folders</div>
+            </div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+            </div>
+            <div>
+              <div class="dash-stat-number" id="statShared">0</div>
+              <div class="dash-stat-label">Shared Links</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">All Files</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Type</th>
+                  <th>Folder</th>
+                  <th>Size</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="fileTableBody">
+                <!-- Rows injected by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- UPLOAD SECTION ---------- -->
+      <section class="dash-section" id="section-upload">
+        <h2 class="section-heading">Upload File</h2>
+
+        <div class="panel">
+          <div class="upload-msg" id="uploadMsg"></div>
+
+          <div class="upload-box">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
+            <p>Choose a file to upload</p>
+            <p class="upload-hint">Supported types: PDF, JPG, JPEG, PNG</p>
+            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="folderSelect">Folder</label>
+              <select id="folderSelect">
+                <option value="">No Folder</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="uploadBtn">Upload File</button>
+        </div>
+      </section>
+
+      <!-- ---------- HISTORY SECTION ---------- -->
+      <section class="dash-section" id="section-history">
+        <h2 class="section-heading">History</h2>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Action</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <!-- Rows injected by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- FOLDERS SECTION ---------- -->
+      <section class="dash-section" id="section-folders">
+        <h2 class="section-heading">Folders</h2>
+
+        <div class="panel">
+          <div class="panel-title">Create a new folder</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="newFolderName">Folder Name</label>
+              <input type="text" id="newFolderName" placeholder="e.g. Assignments" />
+            </div>
+          </div>
+          <button class="btn btn-primary" id="createFolderBtn">Create Folder</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Your Folders</div>
+          <div class="folder-grid" id="folderGrid">
+            <!-- Folder cards injected by dashboard.js -->
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Move a file into a folder</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="moveFileSelect">File</label>
+              <select id="moveFileSelect"></select>
+            </div>
+            <div class="form-group">
+              <label for="moveFolderSelect">Target Folder</label>
+              <select id="moveFolderSelect">
+                <option value="">No Folder</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="moveFileBtn">Move File</button>
+        </div>
+      </section>
+
+      <!-- ---------- SHARED FILES SECTION ---------- -->
+      <section class="dash-section" id="section-shared">
+        <h2 class="section-heading">Shared Files</h2>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Share Link</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="sharedTableBody">
+                <!-- Rows injected by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- PROFILE SECTION ---------- -->
+      <section class="dash-section" id="section-profile">
+        <h2 class="section-heading">Profile</h2>
+
+        <div class="panel">
+          <div class="profile-card">
+            <div class="profile-avatar" id="profileAvatar">U</div>
+            <div>
+              <div style="font-size:18px; font-weight:700;" id="profileName">User Name</div>
+              <div style="font-size:13px; color:var(--fm-text-soft);" id="profileEmail">user@email.com</div>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <span class="profile-info-label">Total Files</span>
+            <span class="profile-info-value" id="profileTotalFiles">0</span>
+          </div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Total Folders</span>
+            <span class="profile-info-value" id="profileTotalFolders">0</span>
+          </div>
+
+          <div style="margin-top:20px;">
+            <button class="btn btn-danger-outline" id="profileLogoutBtn">Logout</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOLDER CONTENTS MODAL ===================== -->
+  <div class="modal-overlay" id="folderModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="folder-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+          </div>
+          <div>
+            <div class="modal-title" id="folderModalTitle">Folder</div>
+            <div class="modal-subtitle" id="folderModalSubtitle">0 file(s)</div>
+          </div>
+        </div>
+        <button class="modal-close" id="folderModalClose" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="folderModalBody">
+        <!-- File cards injected by dashboard.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification for share links etc -->
+  <div class="toast" id="toast">
+    <span id="toastText"></span>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
